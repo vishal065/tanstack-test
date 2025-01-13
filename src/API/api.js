@@ -22,3 +22,33 @@ export const fetchPostById = async (id) => {
     console.error(error);
   }
 };
+
+export const DeletePost = async (id) => {
+  try {
+    const res = await axiosInstance.delete(`/posts/${id}`);
+    return res.status === 200 ? "success" : "Failed";
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const UpdatePost = async (id) => {
+  try {
+    return axiosInstance.patch(`/posts/${id}`, {
+      title: "new updated title",
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const fetchUsers = async ({ pageParam = 1 }) => {
+  try {
+    const res = await axiosInstance.get(
+      `https://api.github.com/users?per_page=10&page=${pageParam}`
+    );
+    return res.data;
+  } catch (error) {
+    console.error(error);
+  }
+};

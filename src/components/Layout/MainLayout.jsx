@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 function MainLayout() {
   return (
-    <div className="w-full h-screen flex flex-col bg-black items-center justify-center  text-white">
+    <div className="w-full h-screen bg-black text-white">
       <Header />
       <Outlet />
       <Footer />
